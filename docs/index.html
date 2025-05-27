@@ -1,16 +1,42 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Doctor Watslocal</title>
-  <meta charset="utf-8" />
-  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Doctor Watslocal – Sector 15</title>
+
+  <!-- Tailwind CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+  <!-- Leaflet CSS (no integrity) -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+  <!-- Optional: Custom Styles -->
   <link rel="stylesheet" href="style.css" />
 </head>
-<body>
-  <h1>Doctor Watslocal – Sector 15</h1>
-  <div id="map" style="height: 90vh;"></div>
+<body class="bg-black text-white font-sans">
 
-  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-  <script src="map.js"></script>
+  <div class="text-center text-3xl font-bold p-4">
+    Doctor Watslocal – Sector 15
+  </div>
+
+  <!-- Animated "Now Playing" Title -->
+  <div id="now-playing" class="text-center text-green-400 font-semibold pb-2 hidden opacity-0 transition-opacity duration-500"></div>
+
+  <!-- Mute Button -->
+  <div class="text-center mb-4">
+    <button id="mute-toggle" class="bg-white text-black py-1 px-3 rounded shadow hover:bg-gray-200">
+      Mute Audio
+    </button>
+  </div>
+
+  <!-- Leaflet Map Container -->
+  <div id="map" style="height: 80vh; margin: 0 1rem; border: 1px solid #444;"></div>
+
+  <!-- Leaflet JS (no integrity) -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <!-- Main Map Logic -->
+ <script src="map.js?v=2"></script>
 </body>
 </html>
