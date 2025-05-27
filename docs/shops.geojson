@@ -4,16 +4,13 @@
     {
       "type": "Feature",
       "properties": {
-        "name": "Giani's Ice Cream",
-        "type": "Dessert",
-        "audio": "audio/gianis.mp3"
+        "name": "Welcome to Sector 15",
+        "type": "Intro",
+        "audio": "audio/Wecome.mp3"
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [
-          77.32295,
-          28.3951
-        ]
+        "coordinates": [77.32119, 28.39580]
       }
     },
     {
@@ -21,29 +18,35 @@
       "properties": {
         "name": "HaldiRam's",
         "type": "Restaurant",
-        "audio": "audio/haldiram.mp3"
+        "audio": "audio/haldirams.mp3"
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [
-          77.32345,
-          28.39522
-        ]
+        "coordinates": [77.32442, 28.39512]
       }
     },
     {
       "type": "Feature",
       "properties": {
-        "name": "Darkbrown Bakery",
+        "name": "Darkbrown Café",
         "type": "Bakery",
         "audio": "audio/darkbrown.mp3"
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [
-          77.32265,
-          28.395
-        ]
+        "coordinates": [77.32250, 28.39519]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "DP Saini Florist",
+        "type": "Florist",
+        "audio": "audio/dp_saini.mp3"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [77.32177, 28.39518]
       }
     }
   ]
