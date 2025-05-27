@@ -9,10 +9,10 @@ L.Icon.Default.mergeOptions({
 
 // Define and center on Sector 15 polygon
 const polygonCoords = [
-  [28.39548, 77.32449], // SW
-  [28.39533, 77.32167], // SE
-  [28.39495, 77.32171], // NE
-  [28.39497, 77.32450]  // NW
+  [28.39548, 77.32449],
+  [28.39533, 77.32167],
+  [28.39495, 77.32171],
+  [28.39497, 77.32450]
 ];
 
 const centroid = polygonCoords.reduce(
@@ -34,6 +34,16 @@ L.polygon(polygonCoords, {
 let currentAudio = null;
 let isMuted = false;
 
+// Smaller icon
+const smallIcon = new L.Icon({
+  iconUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png',
+  shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png',
+  iconSize: [18, 29],
+  iconAnchor: [9, 29],
+  popupAnchor: [0, -29],
+  shadowSize: [30, 30]
+});
+
 fetch('shops.geojson')
   .then(response => response.json())
   .then(data => {
@@ -41,10 +51,9 @@ fetch('shops.geojson')
       const [lng, lat] = feature.geometry.coordinates;
       const { name, audio } = feature.properties;
 
-      const marker = L.marker([lat, lng]).addTo(map)
+      const marker = L.marker([lat, lng], { icon: smallIcon }).addTo(map)
         .bindPopup(name);
 
-      // Play audio on hover or click (for mobile fallback)
       const playAudio = () => {
         if (isMuted) return;
         if (currentAudio) currentAudio.pause();
@@ -65,7 +74,7 @@ fetch('shops.geojson')
       };
 
       marker.on('mouseover', playAudio);
-      marker.on('click', playAudio); // fallback for mobile/touch users
+      marker.on('click', playAudio);
     });
   });
 
