@@ -7,11 +7,27 @@ L.Icon.Default.mergeOptions({
   iconUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png',
   shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png'
 });
-const map = L.map('map').setView([28.39518, 77.32309], 18);
+
+const map = L.map('map');
 
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
   attribution: '&copy; OpenStreetMap contributors'
 }).addTo(map);
+
+// Define polygon bounds of Sector 15 Market
+const polygonCoords = [
+  [28.39548, 77.32449], // SW
+  [28.39533, 77.32167], // SE
+  [28.39495, 77.32171], // NE
+  [28.39497, 77.32450]  // NW
+];
+
+const polygon = L.polygon(polygonCoords, {
+  color: '#ff6600',
+  weight: 2
+}).addTo(map).bindPopup('Sector 15 Market Boundary');
+
+map.fitBounds(polygon.getBounds());  // <-- This recenters automatically
 
 const locations = [
   { coords: [28.4089, 77.3178], file: 'Wecome.mp3', label: 'Welcome to Sector 15 Market' },
@@ -52,10 +68,10 @@ locations.forEach(loc => {
 });
 
 // Mute toggle
-document.getElementById('mute-btn').addEventListener('click', () => {
+document.getElementById('mute-toggle').addEventListener('click', () => {
   isMuted = !isMuted;
   const icon = document.getElementById('mute-icon');
-  icon.textContent = isMuted ? '🔇' : '🔊';
+  if (icon) icon.textContent = isMuted ? '🔇' : '🔊';
 
   if (currentAudio) {
     currentAudio.pause();
