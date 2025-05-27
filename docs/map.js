@@ -1,4 +1,4 @@
-console.log("✅ map.js loaded");
+console.log("✅ Latest map.js loaded (hover version)");
 
 delete L.Icon.Default.prototype._getIconUrl;
 
@@ -7,7 +7,7 @@ L.Icon.Default.mergeOptions({
   iconUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png',
   shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png'
 });
-const map = L.map('map').setView([28.4089, 77.3178], 16);
+const map = L.map('map').setView([28.39518, 77.32309], 18);
 
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
   attribution: '&copy; OpenStreetMap contributors'
